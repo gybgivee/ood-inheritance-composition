@@ -1,12 +1,14 @@
 const Article = require('../src/Article.js');
 const Author = require('../src/Author.js');
 describe("Article", () => {
-  let article,author;
+  let article,author1,author2;
   beforeEach(() => {
    
    
-    author = new Author('John Smith',article,'075551557');
-    article = new Article('My Lovely Book',author);
+    author1 = new Author('John Smith','Pimrose Ltd','075551557');
+    author2 = new Author('Jinny Aoolala','Pimrose Ltd','075551587');
+
+    article = new Article('My Lovely Book',[author1,author2]);
   })
 
   describe('#constructor', () => {
@@ -43,17 +45,14 @@ describe("Article", () => {
     })
   })
   describe('#Author', () => {
-    it ('getAuthorInfo', () => {
+    it ('get AuthorInfo', () => {
+      const expected = [ { name: 'John Smith' }, { name: 'Jinny Aoolala' } ];
       
-    const result =  article.author.getAuthorName()
-    console.log('Result: ' + result);
-      expect(result).toEqual('John Smith');
+    const result =  article.getAuthorInfo();
+    //console.log('result: ', result);
+      expect(result).toEqual(expected);
     })
-    it ('getArticleInfo', () => {
-      
-      const result = author.publisher.getArticleName()
-        expect(result).toEqual('My Lovely Book');
-      })
+  
 
     
   })

@@ -4,7 +4,7 @@ describe("Book", () => {
   let book,author
   beforeEach(() => {
   
-    author = new Author('John Smith',book,'075551557');
+    author = new Author('John Smith','Pimrose Ltd','075551557');
     book = new Book('My Lovely Book',author);
   })
 
@@ -45,16 +45,11 @@ describe("Book", () => {
   describe('#Author', () => {
     it ('getAuthorInfo', () => {
       
-    const result =  book.author.getAuthorName()
+    const result = book.author.getAuthorName();
     console.log('Result: ' + result);
       expect(result).toEqual('John Smith');
     })
-    it ('getBookInfo', () => {
-      
-      const result = author.publisher.getBookName()
-        expect(result).toEqual('My Lovely Book');
-      })
-
+   
     
   })
 
