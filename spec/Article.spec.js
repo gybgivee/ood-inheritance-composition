@@ -1,9 +1,12 @@
-const Article = require('../src/Article.js')
-
+const Article = require('../src/Article.js');
+const Author = require('../src/Author.js');
 describe("Article", () => {
-  let article
+  let article,author;
   beforeEach(() => {
-    article = new Article('My Lovely Book')
+   
+   
+    author = new Author('John Smith',article,'075551557');
+    article = new Article('My Lovely Book',author);
   })
 
   describe('#constructor', () => {
@@ -38,5 +41,20 @@ describe("Article", () => {
     it ('raises an error if the article is not on loan', () => {
       expect(() => article.checkIn()).toThrowError('item is not currently on loan')
     })
+  })
+  describe('#Author', () => {
+    it ('getAuthorInfo', () => {
+      
+    const result =  article.author.getAuthorName()
+    console.log('Result: ' + result);
+      expect(result).toEqual('John Smith');
+    })
+    it ('getArticleInfo', () => {
+      
+      const result = author.publisher.getArticleName()
+        expect(result).toEqual('My Lovely Book');
+      })
+
+    
   })
 })

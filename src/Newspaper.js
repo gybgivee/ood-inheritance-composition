@@ -1,12 +1,5 @@
-class Newspaper {
-  constructor(title) {
-    this.title = title
-    this.onLoan = false
-  }
-
-  isOnLoan() {
-    return this.onLoan
-  }
+const Rent = require('./rent');
+class Newspaper extends Rent {
 
   checkIn() {
     throw new Error('newspapers are not available for loan')
